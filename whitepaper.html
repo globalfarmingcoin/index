@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GFC</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+    <div id="infraloader" class="infraloader is-active"></div>    
+    <div class="roadmap-wrapper">
+        <!-- Landing page Hero -->
+        <section class="hero is-medium">
+            <div class="hero-head">
+    
+                <!-- Cloned navbar -->
+                <!-- Cloned navbar that comes in on scroll -->
+                <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                        'is-active': scrolled,
+                        '': !scrolled
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img src="img/logo/gfclogo.svg" alt="">
+                                <span class="brand-name">G F C</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="index.html">HOME</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap.html">ROADMAP</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap1.html">ROADMAP A.1</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap2.html">ROADMAP A.2</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap3.html">ROADMAP A.3</a>
+                                    </a>
+                                </div>
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="whitepaper.html">WHITEPAPER</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Cloned navbar -->
+                <!-- Static navbar -->
+                <!-- Static navbar -->
+                <nav x-data="initNavbar()" class="navbar is-light" :class="{
+                        'is-dark-mobile': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img src="img/logo/gfclogo.svg" alt="">
+                                <span class="brand-name">G F C</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="navbarMenu" class="navbar-menu light-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="index.html">HOME</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap.html">ROADMAP</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap1.html">ROADMAP A.1</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap2.html">ROADMAP A.2</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap3.html">ROADMAP A.3</a>
+                                    </a>
+                                </div>
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="whitepaper.html">WHITEPAPER</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Static navbar -->
+            </div>
+            <div x-data="initHero()" x-init="initParticles()" id="particles-js"></div>
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <!-- Landing page Title -->
+                    <div class="column is-5 landing-caption">
+                        <h1 class="title is-3 is-light is-semibold is-spaced main-title has-text-centered">GLOBAL FARMING COIN</h1>
+                        <h4 class="subtitle is-6 is-light is-semibold has-text-centered is-compact">One Step Solution Agriculture</h4>
+                        </br>
+                        
+                    </div>
+                    <!-- Hero image -->
+                    <div class="column is-5 is-offset-1 ico-countdown">
+<h1 class="title is-3 is-light is-semibold is-spaced main-title has-text-centered">WHITEPAPER</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section x-data="initRoadmap()" x-init="setupRoadmap()" id="roadmap" class="main-timeline">
+            <div class="content-wrapper is-large">
+                        <div class="columns">
+                            <div class="column is-5 is-offset-1">
+    
+                                <!-- Accordion -->
+                                <div class="accordion">
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle1" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle1">
+                                            Whitepaper IND (Indonesia)
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p><a class="is-centered-responsive" href="https://github.com/globalfarmingcoin/whitepaper-IND.git">Download Here</a></p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!-- /Accordion -->
+                            </div>
+    
+    
+                            <div class="column is-5">
+    
+                                <!-- Accordion -->
+                                <div class="accordion">
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle2" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle2">
+                                            Whitepaper ENG (English)
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p><a class="is-centered-responsive" href="-">Download Here</a></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /Accordion -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Content wrapper -->
+        </section>
+    </div>
+    <footer class="krypton-footer">
+        <div class="container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="#">
+                    <img src="img/logo/gfclogo.svg" alt="">
+                    <div class="brand-name">Global Farming Coin</div>
+                    <div class="brand-subtitle">One Step Solution Agriculture</div>
+                </a>
+            </div>
+            <div class="accepted-currencies">
+                <div data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://web.facebook.com/Global-Farming-Coin-106217582033662">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="JOZq0V4XPxMzNaLCE5XPGa" x1="37.646" x2="37.646" y1="14.5" y2="56.878" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#JOZq0V4XPxMzNaLCE5XPGa)" d="M42,56V38h5.358l0.934-8H42v-4.457c0-2.097-0.131-3.527,2.877-3.527L48,22.014v-6.479 c-1-0.088-2.487-0.285-5.136-0.285c-5.531,0-8.864,3.376-8.864,9.576V30h-7v8h7v18H42z"/><linearGradient id="JOZq0V4XPxMzNaLCE5XPGb" x1="32" x2="32" y1="6.833" y2="58.017" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#JOZq0V4XPxMzNaLCE5XPGb)" d="M50,57H14c-3.859,0-7-3.141-7-7V14c0-3.859,3.141-7,7-7h36c3.859,0,7,3.141,7,7v36 C57,53.859,53.859,57,50,57z M14,9c-2.757,0-5,2.243-5,5v36c0,2.757,2.243,5,5,5h36c2.757,0,5-2.243,5-5V14c0-2.757-2.243-5-5-5H14z"/></svg>
+                    </a>
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://www.instagram.com/gobalfarmingcoin">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="jm_nAfYbxsVmTlYr5N4x9a" x1="32" x2="32" y1="6.667" y2="57.872" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#jm_nAfYbxsVmTlYr5N4x9a)" d="M44,57H20c-7.168,0-13-5.832-13-13V20c0-7.168,5.832-13,13-13h24c7.168,0,13,5.832,13,13v24 C57,51.168,51.168,57,44,57z M20,9C13.935,9,9,13.935,9,20v24c0,6.065,4.935,11,11,11h24c6.065,0,11-4.935,11-11V20 c0-6.065-4.935-11-11-11H20z"/><linearGradient id="jm_nAfYbxsVmTlYr5N4x9b" x1="32" x2="32" y1="18.167" y2="45.679" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#jm_nAfYbxsVmTlYr5N4x9b)" d="M32,45c-7.168,0-13-5.832-13-13c0-7.168,5.832-13,13-13c7.168,0,13,5.832,13,13 C45,39.168,39.168,45,32,45z M32,23c-4.962,0-9,4.038-9,9c0,4.963,4.038,9,9,9c4.963,0,9-4.037,9-9C41,27.038,36.963,23,32,23z"/><linearGradient id="jm_nAfYbxsVmTlYr5N4x9c" x1="46" x2="46" y1="12.75" y2="23.049" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#jm_nAfYbxsVmTlYr5N4x9c)" d="M46 15A3 3 0 1 0 46 21A3 3 0 1 0 46 15Z"/></svg>
+                    </a>
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="300" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://twitter.com/official_gfcoin">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40px" height="40px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g><path style="opacity:0.998" fill="#2768ff" d="M 56.5,21.5 C 55.8333,21.5 55.1667,21.5 54.5,21.5C 54.7367,17.7267 54.2367,14.0601 53,10.5C 51.9326,9.80945 50.7659,9.30945 49.5,9C 37.5,8.33333 25.5,8.33333 13.5,9C 10.6576,9.34765 8.99095,10.8477 8.5,13.5C 8.15829,12.6618 7.49162,12.3284 6.5,12.5C 6.39297,10.0968 7.39297,8.26351 9.5,7C 24.1667,6.33333 38.8333,6.33333 53.5,7C 54.3333,7.83333 55.1667,8.66667 56,9.5C 56.4988,13.4862 56.6655,17.4862 56.5,21.5 Z"/></g>
+<g><path style="opacity:1" fill="#4959ff" d="M 6.5,12.5 C 7.49162,12.3284 8.15829,12.6618 8.5,13.5C 8.5,17.1667 8.5,20.8333 8.5,24.5C 7.83333,24.5 7.16667,24.5 6.5,24.5C 6.5,20.5 6.5,16.5 6.5,12.5 Z"/></g>
+<g><path style="opacity:0.936" fill="#7fc3ff" d="M 44.5,25.5 C 40.03,24.5139 35.3633,24.1805 30.5,24.5C 30.84,22.321 31.84,20.4877 33.5,19C 37.9023,18.9359 42.2356,18.7692 46.5,18.5C 46.4366,19.6605 46.7699,20.9938 47.5,22.5C 46.8118,23.8549 45.8118,24.8549 44.5,25.5 Z"/></g>
+<g><path style="opacity:0.922" fill="#93beff" d="M 30.5,24.5 C 35.3633,24.1805 40.03,24.5139 44.5,25.5C 44.7845,27.4147 44.4511,29.0813 43.5,30.5C 34.6822,29.5067 25.6822,29.1734 16.5,29.5C 16.5043,26.2824 16.8377,22.949 17.5,19.5C 20.3681,21.5318 23.3681,23.3651 26.5,25C 28.0657,25.765 29.3991,25.5983 30.5,24.5 Z"/></g>
+<g><path style="opacity:0.928" fill="#acb8fe" d="M 16.5,29.5 C 25.6822,29.1734 34.6822,29.5067 43.5,30.5C 43.7373,31.791 43.404,32.791 42.5,33.5C 34.5,33.5 26.5,33.5 18.5,33.5C 17.8333,32.1667 17.1667,30.8333 16.5,29.5 Z"/></g>
+<g><path style="opacity:0.96" fill="#bab4fe" d="M 18.5,33.5 C 26.5,33.5 34.5,33.5 42.5,33.5C 42.4431,34.609 42.1098,35.609 41.5,36.5C 34.1667,36.5 26.8333,36.5 19.5,36.5C 18.8902,35.609 18.5569,34.609 18.5,33.5 Z"/></g>
+<g><path style="opacity:0.897" fill="#d0b3ff" d="M 19.5,36.5 C 26.8333,36.5 34.1667,36.5 41.5,36.5C 40.5,38.1667 39.1667,39.5 37.5,40.5C 32.1667,40.5 26.8333,40.5 21.5,40.5C 21.6107,39.8826 21.944,39.3826 22.5,39C 21.0577,38.6232 20.0577,37.7899 19.5,36.5 Z"/></g>
+<g><path style="opacity:1" fill="#7845fe" d="M 54.5,21.5 C 55.1667,21.5 55.8333,21.5 56.5,21.5C 56.5,27.8333 56.5,34.1667 56.5,40.5C 55.8333,40.5 55.1667,40.5 54.5,40.5C 54.5,34.1667 54.5,27.8333 54.5,21.5 Z"/></g>
+<g><path style="opacity:1" fill="#8041fe" d="M 6.5,24.5 C 7.16667,24.5 7.83333,24.5 8.5,24.5C 8.5,30.5 8.5,36.5 8.5,42.5C 7.83333,42.5 7.16667,42.5 6.5,42.5C 6.5,36.5 6.5,30.5 6.5,24.5 Z"/></g>
+<g><path style="opacity:0.848" fill="#e2acff" d="M 21.5,40.5 C 26.8333,40.5 32.1667,40.5 37.5,40.5C 34.4896,43.8713 30.6563,45.2046 26,44.5C 22.177,44.7785 18.677,43.9452 15.5,42C 17.4357,41.187 19.4357,40.687 21.5,40.5 Z"/></g>
+<g><path style="opacity:0.874" fill="#b829ff" d="M 54.5,40.5 C 55.1667,40.5 55.8333,40.5 56.5,40.5C 56.6657,44.8461 56.499,49.1794 56,53.5C 55.1667,54.3333 54.3333,55.1667 53.5,56C 38.8333,56.6667 24.1667,56.6667 9.5,56C 8.66667,55.1667 7.83333,54.3333 7,53.5C 6.50137,49.8484 6.3347,46.1817 6.5,42.5C 7.16667,42.5 7.83333,42.5 8.5,42.5C 8.30108,45.941 8.80108,49.2744 10,52.5C 11.0674,53.1905 12.2341,53.6905 13.5,54C 25.5,54.6667 37.5,54.6667 49.5,54C 50.7659,53.6905 51.9326,53.1905 53,52.5C 54.2662,48.6049 54.7662,44.6049 54.5,40.5 Z"/></g>
+</svg>
+                    </a>
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="400" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://www.reddit.com/r/globalfarmingcoin">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="pgAleSNCvHJJ8c2smCaG1a" x1="32" x2="32" y1="8.787" y2="55.119" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#pgAleSNCvHJJ8c2smCaG1a)" d="M60,32.5c0-4.136-3.364-7.5-7.5-7.5c-1.782,0-3.463,0.616-4.811,1.75 c-4.242-2.319-9.5-3.621-14.96-3.729l3.03-12.877c0.124-0.528,0.653-0.863,1.186-0.748l11.843,2.581l0.426-1.954L37.37,7.442 c-1.588-0.347-3.187,0.66-3.559,2.244l-3.142,13.352c-5.244,0.189-10.273,1.478-14.358,3.711C14.963,25.616,13.282,25,11.5,25 C7.364,25,4,28.364,4,32.5c0,2.393,1.17,4.657,3.093,6.06C7.031,39.05,7,39.532,7,40c0,9.374,11.215,17,25,17s25-7.626,25-17 c0-0.468-0.031-0.95-0.093-1.44C58.83,37.157,60,34.893,60,32.5z M55.31,37.221c-0.358,0.213-0.546,0.626-0.472,1.036 C54.947,38.864,55,39.435,55,40c0,8.271-10.318,15-23,15S9,48.271,9,40c0-0.565,0.053-1.136,0.163-1.743 c0.074-0.41-0.114-0.823-0.472-1.036C7.006,36.215,6,34.451,6,32.5c0-3.033,2.467-5.5,5.5-5.5c1.499,0,2.901,0.596,3.948,1.677 c0.32,0.33,0.826,0.4,1.224,0.167C20.902,26.365,26.346,25,32,25s11.098,1.365,15.328,3.844c0.398,0.234,0.903,0.164,1.224-0.167 C49.599,27.596,51.001,27,52.5,27c3.033,0,5.5,2.467,5.5,5.5C58,34.451,56.994,36.215,55.31,37.221z"/><linearGradient id="pgAleSNCvHJJ8c2smCaG1b" x1="49.5" x2="49.5" y1="6.83" y2="15.262" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><circle cx="49.5" cy="11.5" r="4.5" fill="url(#pgAleSNCvHJJ8c2smCaG1b)"/><linearGradient id="pgAleSNCvHJJ8c2smCaG1c" x1="22" x2="22" y1="33.106" y2="40.192" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><circle cx="22" cy="37" r="4" fill="url(#pgAleSNCvHJJ8c2smCaG1c)"/><linearGradient id="pgAleSNCvHJJ8c2smCaG1d" x1="42" x2="42" y1="33.106" y2="40.192" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><circle cx="42" cy="37" r="4" fill="url(#pgAleSNCvHJJ8c2smCaG1d)"/><linearGradient id="pgAleSNCvHJJ8c2smCaG1e" x1="32.081" x2="32.081" y1="33.106" y2="40.192" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#pgAleSNCvHJJ8c2smCaG1e)" d="M32,50c-3.604,0-7.03-1.031-9.647-2.902l-1.163,1.627C24.144,50.837,27.982,52,32,52 c4.1,0,7.996-1.205,10.972-3.393l-1.185-1.611C39.152,48.933,35.676,50,32,50z"/></svg>
+                        </svg>
+                    </a>
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="500" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://github.com/globalfarmingcoin">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="KpzH_ttTMIjq8dhx1zD2pa" x1="30.999" x2="30.999" y1="16" y2="55.342" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#KpzH_ttTMIjq8dhx1zD2pa)" d="M25.008,56.007c-0.003-0.368-0.006-1.962-0.009-3.454l-0.003-1.55 c-6.729,0.915-8.358-3.78-8.376-3.83c-0.934-2.368-2.211-3.045-2.266-3.073l-0.124-0.072c-0.463-0.316-1.691-1.157-1.342-2.263 c0.315-0.997,1.536-1.1,2.091-1.082c3.074,0.215,4.63,2.978,4.694,3.095c1.569,2.689,3.964,2.411,5.509,1.844 c0.144-0.688,0.367-1.32,0.659-1.878C20.885,42.865,15.27,40.229,15.27,30.64c0-2.633,0.82-4.96,2.441-6.929 c-0.362-1.206-0.774-3.666,0.446-6.765l0.174-0.442l0.452-0.144c0.416-0.137,2.688-0.624,7.359,2.433 c1.928-0.494,3.969-0.749,6.074-0.759c2.115,0.01,4.158,0.265,6.09,0.759c4.667-3.058,6.934-2.565,7.351-2.433l0.451,0.145 l0.174,0.44c1.225,3.098,0.813,5.559,0.451,6.766c1.618,1.963,2.438,4.291,2.438,6.929c0,9.591-5.621,12.219-10.588,13.087 c0.563,1.065,0.868,2.402,0.868,3.878c0,1.683-0.007,7.204-0.015,8.402l-2-0.014c0.008-1.196,0.015-6.708,0.015-8.389 c0-2.442-0.943-3.522-1.35-3.874l-1.73-1.497l2.274-0.253c5.205-0.578,10.525-2.379,10.525-11.341c0-2.33-0.777-4.361-2.31-6.036 l-0.43-0.469l0.242-0.587c0.166-0.401,0.894-2.442-0.043-5.291c-0.758,0.045-2.568,0.402-5.584,2.447l-0.384,0.259l-0.445-0.123 c-1.863-0.518-3.938-0.796-6.001-0.806c-2.052,0.01-4.124,0.288-5.984,0.806l-0.445,0.123l-0.383-0.259 c-3.019-2.044-4.833-2.404-5.594-2.449c-0.935,2.851-0.206,4.892-0.04,5.293l0.242,0.587l-0.429,0.469 c-1.536,1.681-2.314,3.712-2.314,6.036c0,8.958,5.31,10.77,10.504,11.361l2.252,0.256l-1.708,1.49 c-0.372,0.325-1.03,1.112-1.254,2.727l-0.075,0.549l-0.506,0.227c-1.321,0.592-5.839,2.162-8.548-2.485 c-0.015-0.025-0.544-0.945-1.502-1.557c0.646,0.639,1.433,1.673,2.068,3.287c0.066,0.19,1.357,3.622,7.28,2.339l1.206-0.262 l0.012,3.978c0.003,1.487,0.006,3.076,0.009,3.444L25.008,56.007z"/><linearGradient id="KpzH_ttTMIjq8dhx1zD2pb" x1="32" x2="32" y1="5" y2="59.167" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#KpzH_ttTMIjq8dhx1zD2pb)" d="M32,58C17.663,58,6,46.337,6,32S17.663,6,32,6s26,11.663,26,26S46.337,58,32,58z M32,8 C18.767,8,8,18.767,8,32s10.767,24,24,24s24-10.767,24-24S45.233,8,32,8z"/></svg>
+                    </a>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="500" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://medium.com/@globalfarmingcoin">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="8hD4rQAUvDlnOcrtKRMHva" x1="32" x2="32" y1="542.25" y2="590.76" gradientTransform="translate(0 -534)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#8hD4rQAUvDlnOcrtKRMHva)" d="M51,56H13c-2.757,0-5-2.243-5-5V13c0-2.757,2.243-5,5-5h38c2.757,0,5,2.243,5,5v38	C56,53.757,53.757,56,51,56z M13,10c-1.654,0-3,1.346-3,3v38c0,1.654,1.346,3,3,3h38c1.654,0,3-1.346,3-3V13c0-1.654-1.346-3-3-3H13	z"/><linearGradient id="8hD4rQAUvDlnOcrtKRMHvb" x1="32" x2="32" y1="19.092" y2="45.092" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#8hD4rQAUvDlnOcrtKRMHvb)" d="M44.973,22.703l2.768-2.334c0.513-0.433,0.211-1.276-0.457-1.276h-8.022l-6.774,16.448	l-7.504-16.449h-5.71h-2.56c-0.636,0-0.954,0.778-0.505,1.233l3.065,3.101v2.166V40.76l-2.855,4.333h8.566l-2.855-4.334V27.036	l6.425,18.056h3.569l7.139-18.056v15.167l-2.855,2.889H47.83l-2.855-2.889v-19.5H44.973z"/></svg>
+                    </a>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="500" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://www.youtube.com/channel/UCin3rvAyppoPOj2NCXsrICg">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="PMWUiMSnUf2R_PPJ6rqZea" x1="32" x2="32" y1="10" y2="54.751" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#PMWUiMSnUf2R_PPJ6rqZea)" d="M32,53.001c-6.358,0-12.716-0.195-19.299-0.584c-4.96-0.293-8.961-4.242-9.308-9.187 c-0.521-7.452-0.521-15.009-0.001-22.46c0.348-4.945,4.349-8.895,9.309-9.188c13.167-0.778,25.433-0.778,38.598,0 c4.96,0.293,8.961,4.242,9.308,9.187c0.521,7.452,0.521,15.009,0.001,22.46c-0.348,4.945-4.349,8.895-9.309,9.188l0,0 C44.716,52.806,38.358,53.001,32,53.001z M51.182,50.421l0.059,0.998L51.182,50.421c3.959-0.234,7.153-3.386,7.431-7.331 c0.515-7.358,0.515-14.821-0.001-22.181c-0.276-3.944-3.471-7.096-7.43-7.33c-13.088-0.773-25.275-0.773-38.363,0 c-3.959,0.234-7.153,3.386-7.431,7.331c-0.515,7.358-0.515,14.821,0.001,22.181c0.276,3.944,3.471,7.096,7.43,7.33 C25.906,51.194,38.094,51.194,51.182,50.421z"/><linearGradient id="PMWUiMSnUf2R_PPJ6rqZeb" x1="31.72" x2="31.72" y1="24.25" y2="39.252" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#PMWUiMSnUf2R_PPJ6rqZeb)" d="M25 39.84L25 24.16 38.44 32z"/><linearGradient id="PMWUiMSnUf2R_PPJ6rqZec" x1="32.212" x2="32.212" y1="10" y2="54.751" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#PMWUiMSnUf2R_PPJ6rqZec)" d="M24,41.581V22.419L40.425,32L24,41.581z M26,25.901v12.197L36.456,32L26,25.901z"/></svg>
+                    </a>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="500" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://t.me/globalfarmingcoin_news">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="EEzBmxT86u8E~6vCqQtLma" x1="29.5" x2="29.5" y1="19.006" y2="46" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#EEzBmxT86u8E~6vCqQtLma)" d="M22.007,35.25L39.022,25L27.011,37.5l10.535,8.275c1.887,0.83,2.574-0.899,2.574-0.899 l4.825-24.501c0,0,0.082-0.625,0.045-0.75c-0.344-1.168-2.228-0.325-2.227-0.324L15.206,30.188c0,0-1.304,0.449-1.201,1.278 c0.103,0.83,1.167,1.209,1.167,1.209l6.837,2.575"/><linearGradient id="EEzBmxT86u8E~6vCqQtLmb" x1="29.5" x2="29.5" y1="5.833" y2="58.262" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#EEzBmxT86u8E~6vCqQtLmb)" d="M45.949,19.343c-0.23-0.784-0.859-1.269-1.727-1.33c-0.175-0.013-1.159,0.027-1.823,0.365 l-0.003-0.007L14.881,29.243C13.996,29.547,13.02,30.266,13,31.33c-0.002,0.084,0.003,0.171,0.014,0.26 c0.173,1.4,1.654,1.968,1.807,2.021l6.377,2.402c0.49,1.575,2.108,6.774,2.456,7.886c0.234,0.744,0.62,1.709,1.327,1.973 C25.185,45.956,25.402,46,25.628,46c0.614,0,1.014-0.312,1.163-0.447l3.903-3.89l6.235,4.897c0.065,0.052,0.138,0.096,0.215,0.129 c0.517,0.228,0.976,0.31,1.367,0.31c0.409,0,0.745-0.089,0.998-0.193c1.067-0.438,1.494-1.447,1.54-1.561 c0.022-0.057,0.04-0.116,0.052-0.176l4.835-24.564C46.047,19.669,45.987,19.472,45.949,19.343z M23.195,35.701l9.872-5.947 l-6.775,7.053c-0.12,0.124-0.188,0.279-0.229,0.442c-0.003,0.012-1.006,4.43-1.006,4.43L23.195,35.701z M43.963,20.188l-4.799,24.37 c-0.057,0.098-0.2,0.311-0.413,0.398c-0.179,0.073-0.412,0.055-0.694-0.053l-9.559-7.507l11.245-11.704 c0.348-0.361,0.374-0.925,0.061-1.316c-0.312-0.391-0.867-0.491-1.297-0.232l-16.601,10l-6.389-2.406 c-0.196-0.075-0.398-0.221-0.481-0.323c0.109-0.096,0.329-0.221,0.537-0.296L43.131,20.23c0.017-0.006,0.033-0.014,0.05-0.021 c0.251-0.11,0.59-0.192,0.803-0.205C43.974,20.104,43.963,20.187,43.963,20.188z"/><linearGradient id="EEzBmxT86u8E~6vCqQtLmc" x1="32" x2="32" y1="5.833" y2="58.262" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#EEzBmxT86u8E~6vCqQtLmc)" d="M32,58C17.663,58,6,46.336,6,32S17.663,6,32,6s26,11.664,26,26S46.337,58,32,58z M32,8 C18.767,8,8,18.767,8,32s10.767,24,24,24s24-10.767,24-24S45.233,8,32,8z"/></svg>
+                    </a>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="500" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    <a href="https://discord.gg/7CHUKqwHj2">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="40px" height="40px"><linearGradient id="UN4RlDSVUff8gfIC6tpoIa" x1="22.649" x2="22.857" y1="26.442" y2="39.934" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#UN4RlDSVUff8gfIC6tpoIa)" d="M22.751,27.252c-2.629,0-4.793,2.605-4.793,5.77s2.164,5.77,4.793,5.77	s4.793-2.605,4.793-5.77S25.38,27.252,22.751,27.252z"/><linearGradient id="UN4RlDSVUff8gfIC6tpoIb" x1="40.859" x2="41.067" y1="26.162" y2="39.654" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6dc7ff"/><stop offset="1" stop-color="#e6abff"/></linearGradient><path fill="url(#UN4RlDSVUff8gfIC6tpoIb)" d="M40.965,27.252c-2.63,0-4.793,2.605-4.793,5.77s2.164,5.77,4.793,5.77s4.793-2.605,4.793-5.77	S43.594,27.252,40.965,27.252z"/><linearGradient id="UN4RlDSVUff8gfIC6tpoIc" x1="32.478" x2="32.478" y1="10.284" y2="52.864" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1a6dff"/><stop offset="1" stop-color="#c822ff"/></linearGradient><path fill="url(#UN4RlDSVUff8gfIC6tpoIc)" d="M52.252,14.218c-0.104-0.15-0.249-0.27-0.417-0.343c-4.679-2.061-8.334-3.2-11.505-3.584	c-0.413-0.047-0.827,0.169-1.016,0.548l-1.1,2.214c-1.745-0.207-3.595-0.279-5.711-0.22c-2.164-0.057-4.017,0.014-5.764,0.22	l-1.1-2.214c-0.188-0.379-0.598-0.595-1.016-0.548c-3.169,0.384-6.825,1.523-11.505,3.584c-0.168,0.074-0.312,0.193-0.417,0.343	c-6.527,9.367-9.128,19.527-7.952,31.062c0.031,0.301,0.196,0.571,0.449,0.736c5.106,3.328,9.513,5.49,13.867,6.806	c0.443,0.133,0.915-0.052,1.149-0.448l3.162-5.337c2.886,0.916,5.909,1.393,8.948,1.393c2.616,0,5.219-0.362,7.735-1.044	c0.5-0.122,1.001-0.238,1.495-0.382l3.181,5.37c0.184,0.31,0.514,0.49,0.86,0.49c0.096,0,0.193-0.014,0.289-0.042	c4.355-1.315,8.762-3.478,13.868-6.806c0.253-0.165,0.418-0.436,0.449-0.736C61.38,33.745,58.778,23.584,52.252,14.218z M58.262,44.601c-4.479,2.885-8.39,4.832-12.206,6.072l-2.62-4.422c1.03-0.418,2.041-0.885,3.02-1.418	c0.484-0.264,0.664-0.872,0.399-1.357c-0.263-0.484-0.869-0.664-1.356-0.4c-1.963,1.069-4.053,1.888-6.209,2.452	c-2.219,0.52-4.466,0.806-6.812,0.856c-3.16-0.067-6.268-0.578-9.237-1.518c-0.011-0.003-0.022-0.001-0.032-0.004	c-1.393-0.488-2.753-1.076-4.052-1.785c-0.488-0.264-1.094-0.084-1.356,0.4c-0.265,0.485-0.085,1.093,0.399,1.357	c1.055,0.575,2.145,1.081,3.26,1.521l-2.559,4.319c-3.815-1.241-7.725-3.187-12.205-6.072c-0.998-10.747,1.454-20.244,7.49-29.009	c4.026-1.758,7.229-2.792,9.985-3.22l1.097,2.208c0.191,0.385,0.606,0.603,1.036,0.545c1.845-0.262,3.798-0.356,6.201-0.295	c2.35-0.06,4.305,0.033,6.148,0.295c0.43,0.058,0.845-0.16,1.036-0.545l1.097-2.208c2.758,0.428,5.96,1.462,9.985,3.22	C56.806,24.356,59.259,33.853,58.262,44.601z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Columns -->
+            <div class="columns footer-columns is-vcentered">
+                <div class="column is-4">
+                </div>
+                <!-- Newsletter -->
+                <div class="column is-4">
+                <p class="k-copyright">© 2022 | GFC. All Rights Reserved</p>
+                </div>
+                <!-- Links group -->
+                <div class="column is-4">
+                </div>
+            </div>
+            <!-- Copyright -->
+            
+        </div>
+    </footer>
+        <!-- Back To Top Button -->
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+        'visible': scrolled,
+        '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+
+</body>
+
+</html>
